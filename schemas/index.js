@@ -1,3 +1,4 @@
+import pet from "./pet";
 
 
-export const schemaTypes = [];
+export const schemaTypes = [pet];

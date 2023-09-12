@@ -31,13 +31,29 @@
 
 code pre {
   display: block;
-  width: 800px;
-  max-width: 800px;
+  width: 1300px;
+  max-width: 1300px;
+  overflow: hidden;
   overflow-wrap: anywhere;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+th {
+  width: 100%;
+}
+
+td{
+  text-align: center;
+}
+
+.Category-image-head {
+  /* padding-left: 100px; */
+  padding-bottom: 50px;
+  width: 100%;
+  text-align: center;
 }
 
 

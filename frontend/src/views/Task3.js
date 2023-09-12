@@ -33,16 +33,25 @@ export async function getCategories() {
   return result;
 }
 
+export async function getData() {
+  const categoriesData = await getCategories();
+  const productsData = await getFilteredProductsPage();
+
+  return { categoriesData, productsData };
+}
+
 
 
 export function Task3() {
   let [categories, setCategories] = useState(null);
+  let [products, setProducts] = useState(null);
 
   useEffect(() => {
-    getCategories().then(data => {
-      setCategories(JSON.stringify(data, undefined, ' '));
+    getData().then(({categoriesData, productsData}) => {
+      setCategories(JSON.stringify(categoriesData, undefined, ' '));
+      setProducts(JSON.stringify(productsData, undefined, ' '));
     })
-  });
+  }, []);
 
   return (
     <>
@@ -59,6 +68,23 @@ export function Task3() {
         // result
 
         ${categories}
+
+        // products query
+
+        const result = await client.fetch(\`
+          *[
+            _type == "product"
+            && price > 300
+            && price <= 1000
+            \${lastId === null ? '' : '&& _id > $lastId'}
+          ] | order(_id desc) [0...100] {
+            _id, enabled, name, sku, imageUrl, color, slug, category->
+          }
+          \`, { lastId });
+
+        // result
+
+        ${products}
         `}
         </pre>
       </code>

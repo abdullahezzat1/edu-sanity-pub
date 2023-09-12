@@ -1,5 +1,5 @@
 import { builder } from "../Client";
 
-function getImageUrlFromSource(source) {
-  return builder.image(source);
+export function getImageUrlBuilder(imageSource) {
+  return builder.image(imageSource);
 }

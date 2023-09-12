@@ -6,12 +6,12 @@ export async function getFilteredProductsPage() {
   const result = await client.fetch(`
   *[
     _type == "product"
-    && skuArray in [example-1, example-2, example-3]
     && price > 300
     && price <= 1000
+    && sku in [example-1, example-2, example-3]
     ${lastId === null ? '' : '&& _id > $lastId'}
   ] | order(_id desc) [0...100] {
-    _id, title, description, imageUrl, category->
+    _id, enabled, name, sku, imageUrl, color, slug, category->
   }
   `, { lastId });
 
@@ -25,7 +25,10 @@ export async function getFilteredProductsPage() {
 }
 
 export async function getCategories() {
-  const result = await client.fetch(`*[_type == "category"]`);
+  const result = await client.fetch(`*[_type == "category"]{
+    ...,
+    "products": *[ _type == "product" && _id in ^.products[]._ref ]
+  }`);
 
   return result;
 }

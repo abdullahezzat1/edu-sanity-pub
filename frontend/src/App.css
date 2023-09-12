@@ -41,6 +41,10 @@ code pre {
   color: #61dafb;
 }
 
+table {
+  margin-bottom: 100px;
+}
+
 th {
   width: 100%;
 }

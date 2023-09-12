@@ -56,6 +56,13 @@ export const product = defineType({
       type: 'array',
       of: [{type: 'block'}]
     }),
+    defineField({
+      name: 'video',
+      type: 'file',
+      Description: 'Video',
+      title: 'Video',
+      options: {accept: '.mp4'}
+    }),
   ]
 });
 

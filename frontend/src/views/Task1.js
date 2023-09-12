@@ -15,14 +15,14 @@ function Task1() {
     sanityClient
       .fetch(
         `*[_type == "pet"]{
-      name,
-      title,
-      fields{
-        name,
-        type,
-        title
-      }
-    }`,
+            name,
+            title,
+            fields{
+              name,
+              type,
+              title
+            }
+          }`,
       )
       .then((data) => setPets(data))
       .catch(console.error)

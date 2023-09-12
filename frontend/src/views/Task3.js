@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import client from "../Client";
 
 let lastId = null;
@@ -8,7 +9,6 @@ export async function getFilteredProductsPage() {
     _type == "product"
     && price > 300
     && price <= 1000
-    && sku in [example-1, example-2, example-3]
     ${lastId === null ? '' : '&& _id > $lastId'}
   ] | order(_id desc) [0...100] {
     _id, enabled, name, sku, imageUrl, color, slug, category->
@@ -34,3 +34,36 @@ export async function getCategories() {
 }
 
 
+
+export function Task3() {
+  let [categories, setCategories] = useState(null);
+
+  useEffect(() => {
+    getCategories().then(data => {
+      setCategories(JSON.stringify(data, undefined, ' '));
+    })
+  });
+
+  return (
+    <>
+      <code>
+        <pre>
+        {`
+        // categories query
+
+        *[_type == "category"]{
+          ...,
+          "products": *[ _type == "product" && _id in ^.products[]._ref ]
+        }
+
+        // result
+
+        ${categories}
+        `}
+        </pre>
+      </code>
+    </>
+  );
+}
+
+export default Task3;

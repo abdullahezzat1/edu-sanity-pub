@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  background-color: #282c34;
+  max-width: 100%;
+  overflow: scroll;
 }
 
 .App-logo {
@@ -13,20 +15,31 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App-header, .App-body {
+  margin-inline: 50px;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-header {
+  align-items: center;
+  justify-content: center;
+}
+
+code pre {
+  display: block;
+  width: 800px;
+  max-width: 800px;
+  overflow-wrap: anywhere;
 }
 
 .App-link {
   color: #61dafb;
 }
+
 
 @keyframes App-logo-spin {
   from {

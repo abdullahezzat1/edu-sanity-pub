@@ -51,10 +51,10 @@ th {
 
 td{
   text-align: center;
+  padding-inline: 30px;
 }
 
-.Category-image-head {
-  /* padding-left: 100px; */
+.Table-head {
   padding-bottom: 50px;
   width: 100%;
   text-align: center;

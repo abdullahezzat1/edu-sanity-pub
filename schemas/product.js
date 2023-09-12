@@ -48,7 +48,11 @@ export const product = defineType({
     defineField({
       name: 'image',
       type: 'image',
-      title: 'Image'
+      title: 'Image',
+      options: {
+        hotspot: true,
+        metadata: ['blurhash', 'lqip', 'palette', 'exif', 'location']
+      }
     }),
     defineField({
       title: 'Description',

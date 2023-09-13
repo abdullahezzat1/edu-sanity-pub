@@ -1,10 +1,12 @@
 import {definePlugin} from 'sanity'
 
-/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/react-in-jsx-scope, react/prop-types */
 
 function PumaLogo(props) {
+  const { title = '' } = props;
+
   return (
-    <div style={{ width: '80px', height: '60px', padding: 5 }}>
+    <div title={title} style={{ width: '80px', height: '60px', padding: 5 }}>
       <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" version="1.2" style={{backgroundColor: 'var(--card-bg-color)'}}>
         <g style={{ transform: 'scale(0.05)' }}>
           <path
@@ -26,4 +28,4 @@ export const logoPlugin = definePlugin({
   },
 })
 
-export default logoPlugin
+export default logoPlugin;

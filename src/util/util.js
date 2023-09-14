@@ -1,5 +1,5 @@
-export function validateAlpha(value) {
-  return !!value.match(/^[a-zA-Z]*$/) || 'Name must contain letters only';
+export function validateAlphaSpace(value) {
+  return !!value.match(/^[a-zA-Z\s]*$/) || 'Name must contain letters only';
 }
 
 export function hideWhenDisabled({document}) {

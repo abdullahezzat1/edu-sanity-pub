@@ -1,6 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import EnhancedString from '../src/components/EnhancedString'
-import {hideWhenDisabled, isNotAdmin, validateAlpha} from '../src/util/util'
+import {hideWhenDisabled, isNotAdmin, validateAlphaSpace} from '../src/util/util'
 
 export const product = defineType({
   name: 'product',
@@ -16,7 +16,7 @@ export const product = defineType({
       name: 'name',
       type: 'string',
       title: 'Name',
-      validation: (Rule) => Rule.required().max(50).custom(validateAlpha),
+      validation: (Rule) => Rule.required().max(50).custom(validateAlphaSpace),
       components: {
         input: EnhancedString,
       },

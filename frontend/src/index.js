@@ -7,12 +7,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Task1 from './views/Task1';
-import Task2 from './views/Task2';
-import Task3 from './views/Task3';
-import Task4 from './views/Task4';
-import Task5 from './views/Task5';
-import Task6 from './views/Task6';
 
 const router = createBrowserRouter([
   {

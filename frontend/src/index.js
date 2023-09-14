@@ -3,11 +3,53 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Task1 from './views/Task1';
+import Task2 from './views/Task2';
+import Task3 from './views/Task3';
+import Task4 from './views/Task4';
+import Task5 from './views/Task5';
+import Task6 from './views/Task6';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/task1",
+    element: <App route="task1" />,
+  },
+  {
+    path: "/task2",
+    element: <App route="task2" />,
+  },
+  {
+    path: "/task3",
+    element: <App route="task3" />,
+  },
+  {
+    path: "/task4",
+    element: <App route="task4" />,
+  },
+  {
+    path: "/task5",
+    element: <App route="task5" />,
+  },
+  {
+    path: "/task6",
+    element: <App route="task6" />,
+  },
+]);
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

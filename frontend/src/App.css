@@ -1,6 +1,7 @@
 .App {
   background-color: #282c34;
   max-width: 100%;
+  min-height: 100vh;
   overflow: scroll;
 }
 
@@ -58,6 +59,15 @@ td{
   padding-bottom: 50px;
   width: 100%;
   text-align: center;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+a {
+  color: #fff;
+  text-decoration: underline;
 }
 
 

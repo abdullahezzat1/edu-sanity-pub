@@ -1,27 +1,47 @@
-import './App.css';
-import Task1 from './views/Task1';
-import Task2 from './views/Task2';
-import Task3 from './views/Task3';
-import Task4 from './views/Task4';
+import {Link} from 'react-router-dom'
+import './App.css'
+import {ROUTES} from './routes'
 
-function App() {
+function renderBody(CurrentTask = null) {
+  if (CurrentTask) {
+    return <CurrentTask />
+  }
+
+  return (
+    <ul>
+      <li>
+        <Link to="/task1">Task 1</Link>
+      </li>
+      <li>
+        <Link to="/task2">Task 2</Link>
+      </li>
+      <li>
+        <Link to="/task3">Task 3</Link>
+      </li>
+      <li>
+        <Link to="/task4">Task 4</Link>
+      </li>
+      <li>
+        <Link to="/task5">Task 5</Link>
+      </li>
+      <li>
+        <Link to="/task6">Task 6</Link>
+      </li>
+    </ul>
+  )
+}
+
+function App(props) {
+  const {route} = props
+
+  const CurrentTask = ROUTES[route]
+
   return (
     <div className="App">
-      <header className="App-header">
-        Sanity EDU course
-      </header>
-      <body className='App-body'>
-        <h1>Task 1</h1>
-        <Task1 />
-        <h1>Task 2</h1>
-        <Task2 />
-        <h1>Task 3</h1>
-        <Task3 />
-        <h1>Task 4</h1>
-        <Task4 />
-      </body>
+      <header className="App-header">Sanity EDU course</header>
+      <body className="App-body">{renderBody(CurrentTask)}</body>
     </div>
   );
 }
 
-export default App;
+export default App
